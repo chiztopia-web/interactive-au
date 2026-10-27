@@ -46,8 +46,8 @@
         <!-- ================= CONTENT AREA ================= -->
         <div class="flex-1 relative overflow-hidden flex flex-col bg-slate-950">
 
-            <!-- 1. LOCK SCREEN (PIN KODE: 2504) - DIPASTIKAN MUNCUL DI AWAL -->
-            <div id="lock-screen" class="absolute inset-0 flex flex-col justify-between p-8 bg-cover bg-center z-50 transition-opacity duration-300 flex" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop');">
+            <!-- 1. LOCK SCREEN (PIN KODE: 2504) - DIPAKSA MUNCUL DENGAN ID STYLE KHUSUS -->
+            <div id="lock-screen" style="display: flex !important;" class="absolute inset-0 flex-col justify-between p-8 bg-cover bg-center z-[100] transition-opacity duration-300" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop');">
                 <div class="text-white text-center mt-16">
                     <svg class="w-7 h-7 mx-auto mb-2 text-slate-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                     <h1 class="text-6xl font-extrabold tracking-tight" id="lock-clock">12:00</h1>
