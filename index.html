@@ -11,7 +11,6 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
         }
-        /* Custom scrollbar gaya iOS */
         ::-webkit-scrollbar {
             width: 4px;
         }
@@ -30,7 +29,7 @@
     <div class="w-full sm:w-[390px] h-screen sm:h-[844px] bg-black sm:rounded-[50px] shadow-2xl flex flex-col relative overflow-hidden border-0 sm:border-[12px] sm:border-slate-800">
 
         <!-- Status Bar & Dynamic Island (Atas iPhone) -->
-        <div class="bg-transparent text-white px-7 py-3 flex justify-between items-center text-xs font-semibold z-50 select-none absolute top-0 left-0 right-0">
+        <div class="bg-transparent text-white px-7 py-3 flex justify-between items-center text-xs font-semibold z-50 select-none absolute top-0 left-0 right-0 pointer-events-none">
             <span id="clock" class="text-sm font-bold">12:00</span>
             <!-- Dynamic Island / Notch -->
             <div class="w-28 h-7 bg-black rounded-full absolute left-1/2 -translate-x-1/2 top-2 flex items-center justify-between px-2.5">
@@ -48,23 +47,23 @@
         <div class="flex-1 relative overflow-hidden flex flex-col bg-slate-950">
 
             <!-- 1. LOCK SCREEN (PIN KODE: 2504) -->
-            <div id="lock-screen" class="absolute inset-0 flex flex-col justify-between p-8 bg-cover bg-center z-40 transition-all duration-300" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop');">
+            <div id="lock-screen" class="absolute inset-0 flex flex-col justify-between p-8 bg-cover bg-center z-40 transition-opacity duration-300" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop');">
                 <div class="text-white text-center mt-16">
                     <svg class="w-7 h-7 mx-auto mb-2 text-slate-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                     <h1 class="text-6xl font-extrabold tracking-tight" id="lock-clock">12:00</h1>
                     <p class="text-base text-slate-200 mt-2 font-medium">Selasa, 27 Oktober</p>
                 </div>
 
-                <!-- Bagian Masukkan PIN -->
+                <!-- Bagian Masukkan PIN (Tanpa clue kode di layar) -->
                 <div class="mb-8 flex flex-col items-center">
-                    <p class="text-white text-xs mb-3 font-medium tracking-wide">Masukkan Kode PIN (2504)</p>
+                    <p class="text-white text-xs mb-3 font-medium tracking-wide">Masukkan Kata Sandi</p>
                     <div class="flex space-x-3 mb-6">
                         <div class="w-3.5 h-3.5 rounded-full border-2 border-white pin-dot" id="dot-0"></div>
                         <div class="w-3.5 h-3.5 rounded-full border-2 border-white pin-dot" id="dot-1"></div>
                         <div class="w-3.5 h-3.5 rounded-full border-2 border-white pin-dot" id="dot-2"></div>
                         <div class="w-3.5 h-3.5 rounded-full border-2 border-white pin-dot" id="dot-3"></div>
                     </div>
-                    <p id="pin-error" class="text-rose-400 text-xs mb-3 hidden font-medium">PIN salah! Coba lagi.</p>
+                    <p id="pin-error" class="text-rose-400 text-xs mb-3 hidden font-medium">Kata sandi salah!</p>
                     
                     <!-- Numpad iPhone -->
                     <div class="grid grid-cols-3 gap-3 w-64">
@@ -87,7 +86,6 @@
             <!-- 2. HOME SCREEN (LAYAR UTAMA IPHONE) -->
             <div id="home-screen" class="absolute inset-0 flex flex-col justify-between p-6 pt-14 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop');">
                 
-                <!-- Widget Jam Kecil iOS -->
                 <div class="text-white mt-4 px-2">
                     <div class="bg-black/30 backdrop-blur-md p-4 rounded-3xl border border-white/10 w-44">
                         <p class="text-xs text-slate-300 font-medium">Waktu Lokal</p>
@@ -95,9 +93,8 @@
                     </div>
                 </div>
 
-                <!-- Grid Aplikasi iOS -->
+                <!-- Grid Aplikasi -->
                 <div class="grid grid-cols-4 gap-5 mb-10 px-2">
-                    <!-- WhatsApp -->
                     <button onclick="openApp('chat-app')" class="flex flex-col items-center group focus:outline-none">
                         <div class="w-14 h-14 bg-emerald-500 rounded-[22px] flex items-center justify-center shadow-lg group-active:scale-95 transition-transform">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
@@ -105,7 +102,6 @@
                         <span class="text-white text-[11px] mt-1 font-medium drop-shadow">WhatsApp</span>
                     </button>
 
-                    <!-- Telepon -->
                     <button onclick="openApp('phone-app')" class="flex flex-col items-center group focus:outline-none">
                         <div class="w-14 h-14 bg-green-600 rounded-[22px] flex items-center justify-center shadow-lg group-active:scale-95 transition-transform">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
@@ -113,7 +109,6 @@
                         <span class="text-white text-[11px] mt-1 font-medium drop-shadow">Telepon</span>
                     </button>
 
-                    <!-- Instagram -->
                     <button onclick="openApp('ig-app')" class="flex flex-col items-center group focus:outline-none">
                         <div class="w-14 h-14 bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 rounded-[22px] flex items-center justify-center shadow-lg group-active:scale-95 transition-transform">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
@@ -121,7 +116,6 @@
                         <span class="text-white text-[11px] mt-1 font-medium drop-shadow">Instagram</span>
                     </button>
 
-                    <!-- Twitter / X -->
                     <button onclick="openApp('twitter-app')" class="flex flex-col items-center group focus:outline-none">
                         <div class="w-14 h-14 bg-black rounded-[22px] border border-white/20 flex items-center justify-center shadow-lg group-active:scale-95 transition-transform">
                             <span class="text-white font-bold text-xl">𝕏</span>
@@ -129,7 +123,6 @@
                         <span class="text-white text-[11px] mt-1 font-medium drop-shadow">Twitter</span>
                     </button>
 
-                    <!-- Album / Gallery -->
                     <button onclick="openApp('gallery-app')" class="flex flex-col items-center group focus:outline-none">
                         <div class="w-14 h-14 bg-gradient-to-tr from-blue-500 to-cyan-400 rounded-[22px] flex items-center justify-center shadow-lg group-active:scale-95 transition-transform">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
@@ -137,7 +130,6 @@
                         <span class="text-white text-[11px] mt-1 font-medium drop-shadow">Foto</span>
                     </button>
 
-                    <!-- Catatan / Notes -->
                     <button onclick="openApp('notes-app')" class="flex flex-col items-center group focus:outline-none">
                         <div class="w-14 h-14 bg-amber-400 rounded-[22px] flex items-center justify-center shadow-lg group-active:scale-95 transition-transform">
                             <svg class="w-7 h-7 text-slate-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
@@ -145,7 +137,6 @@
                         <span class="text-white text-[11px] mt-1 font-medium drop-shadow">Catatan</span>
                     </button>
 
-                    <!-- Jam / Clock -->
                     <button onclick="openApp('clock-app')" class="flex flex-col items-center group focus:outline-none">
                         <div class="w-14 h-14 bg-slate-900 border border-white/20 rounded-[22px] flex items-center justify-center shadow-lg group-active:scale-95 transition-transform">
                             <svg class="w-7 h-7 text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
@@ -155,7 +146,7 @@
                 </div>
             </div>
 
-            <!-- 3. APLIKASI CHAT (WHATSAPP) -->
+            <!-- 3. WHATSAPP -->
             <div id="chat-app" class="absolute inset-0 bg-[#0b141a] flex flex-col translate-y-full transition-transform duration-300 z-30 pt-10">
                 <div class="bg-[#202c33] px-4 py-3 flex items-center justify-between border-b border-slate-700">
                     <div class="flex items-center space-x-3">
@@ -164,7 +155,7 @@
                         </button>
                         <div class="flex items-center space-x-2.5">
                             <div class="w-9 h-9 rounded-full overflow-hidden bg-slate-700">
-                                <img src="https://i.postimg.cc/zXy4RGPJ/minha-foto-de-perfil-para-quem-quiser.jpg" class="w-full h-full object-cover">
+                                <img src="https://i.postimg.cc/zXy4RGPJ/minha-foto-de-perfil-para-quem-quiser.jpg" class="w-full h-full object-cover" crossorigin="anonymous">
                             </div>
                             <div>
                                 <h3 class="text-white text-sm font-semibold">Singa</h3>
@@ -173,50 +164,21 @@
                         </div>
                     </div>
                 </div>
-                <!-- Chat Bubbles -->
                 <div class="flex-1 p-4 overflow-y-auto space-y-2.5 bg-[#0b141a]">
-                    <div class="flex justify-end">
-                        <div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">
-                            p
-                        </div>
-                    </div>
-                    <div class="flex justify-end">
-                        <div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">
-                            kpn mo balikin jaket gw??
-                        </div>
-                    </div>
-                    <div class="flex justify-end">
-                        <div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">
-                            jgn2 udh lo jual ya?
-                        </div>
-                    </div>
-                    <div class="flex justify-start">
-                        <div class="bg-[#202c33] text-slate-100 px-3.5 py-2 rounded-xl rounded-tl-none max-w-[80%] text-sm shadow">
-                            bawel anjirr
-                        </div>
-                    </div>
-                    <div class="flex justify-start">
-                        <div class="bg-[#202c33] text-slate-100 px-3.5 py-2 rounded-xl rounded-tl-none max-w-[80%] text-sm shadow">
-                            kagak yaaa
-                        </div>
-                    </div>
-                    <div class="flex justify-start">
-                        <div class="bg-[#202c33] text-slate-100 px-3.5 py-2 rounded-xl rounded-tl-none max-w-[80%] text-sm shadow">
-                            bsk gua balikin
-                        </div>
-                    </div>
-                    <div class="flex justify-end">
-                        <div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">
-                            lama amat
-                        </div>
-                    </div>
+                    <div class="flex justify-end"><div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">p</div></div>
+                    <div class="flex justify-end"><div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">kpn mo balikin jaket gw??</div></div>
+                    <div class="flex justify-end"><div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">jgn2 udh lo jual ya?</div></div>
+                    <div class="flex justify-start"><div class="bg-[#202c33] text-slate-100 px-3.5 py-2 rounded-xl rounded-tl-none max-w-[80%] text-sm shadow">bawel anjirr</div></div>
+                    <div class="flex justify-start"><div class="bg-[#202c33] text-slate-100 px-3.5 py-2 rounded-xl rounded-tl-none max-w-[80%] text-sm shadow">kagak yaaa</div></div>
+                    <div class="flex justify-start"><div class="bg-[#202c33] text-slate-100 px-3.5 py-2 rounded-xl rounded-tl-none max-w-[80%] text-sm shadow">bsk gua balikin</div></div>
+                    <div class="flex justify-end"><div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">lama amat</div></div>
                 </div>
                 <div class="p-3 bg-[#202c33] flex items-center space-x-2">
                     <input type="text" placeholder="Ketik pesan..." class="flex-1 bg-[#2a3942] text-white text-sm px-4 py-2.5 rounded-full focus:outline-none" disabled>
                 </div>
             </div>
 
-            <!-- 4. APLIKASI TELEPON (PHONE CALL & TRANSKRIP) -->
+            <!-- 4. TELEPON -->
             <div id="phone-app" class="absolute inset-0 bg-slate-900 flex flex-col translate-y-full transition-transform duration-300 z-30 pt-10">
                 <div class="bg-slate-800 px-4 py-3 flex items-center justify-between border-b border-slate-700">
                     <button onclick="closeApp('phone-app')" class="text-slate-300 hover:text-white">
@@ -227,12 +189,10 @@
                 </div>
                 <div class="flex-1 p-4 overflow-y-auto space-y-4">
                     <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Kontak Favorit</p>
-                    
-                    <!-- Kontak Singa (Klik untuk lihat transkrip telepon) -->
                     <div onclick="openCallModal()" class="bg-slate-800/80 p-3.5 rounded-2xl flex items-center justify-between cursor-pointer border border-slate-700 hover:border-emerald-500 transition-all">
                         <div class="flex items-center space-x-3">
                             <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-700">
-                                <img src="https://i.postimg.cc/zXy4RGPJ/minha-foto-de-perfil-para-quem-quiser.jpg" class="w-full h-full object-cover">
+                                <img src="https://i.postimg.cc/zXy4RGPJ/minha-foto-de-perfil-para-quem-quiser.jpg" class="w-full h-full object-cover" crossorigin="anonymous">
                             </div>
                             <div>
                                 <h4 class="text-white font-bold text-sm">Singa</h4>
@@ -246,7 +206,7 @@
                 </div>
             </div>
 
-            <!-- 5. APLIKASI INSTAGRAM -->
+            <!-- 5. INSTAGRAM -->
             <div id="ig-app" class="absolute inset-0 bg-black flex flex-col translate-y-full transition-transform duration-300 z-30 pt-10">
                 <div class="bg-black px-4 py-3 flex items-center justify-between border-b border-zinc-800">
                     <button onclick="closeApp('ig-app')" class="text-white">
@@ -259,13 +219,237 @@
                     <div class="bg-black border-b border-zinc-800">
                         <div class="flex items-center px-3.5 py-2.5 space-x-2.5">
                             <div class="w-8 h-8 rounded-full overflow-hidden bg-zinc-800">
-                                <img src="https://i.postimg.cc/XqLFjWds/`ˏ-lex-xodiac-ˎˊ.jpg" class="w-full h-full object-cover">
+                                <img src="https://i.postimg.cc/XqLFjWds/`ˏ-lex-xodiac-ˎˊ.jpg" class="w-full h-full object-cover" crossorigin="anonymous">
                             </div>
                             <span class="text-white text-xs font-semibold">intothesky</span>
                         </div>
                         <div class="w-full aspect-square bg-zinc-900">
-                            <img src="https://i.postimg.cc/RVTGh5vx/download-(7).jpg" class="w-full h-full object-cover">
+                            <img src="https://i.postimg.cc/RVTGh5vx/download-(7).jpg" class="w-full h-full object-cover" crossorigin="anonymous">
                         </div>
                         <div class="px-3.5 py-2.5 space-y-1">
-                            <div class="flex items-center space-x-3 text-white mb-2">
-                                <svg class="w-6 h-6 text-rose-500 fill-rose-500" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28
+                            <p class="text-white text-xs font-semibold">112 suka</p>
+                            <p class="text-zinc-200 text-xs"><strong class="text-white font-semibold">intothesky</strong> take a rest</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. TWITTER -->
+            <div id="twitter-app" class="absolute inset-0 bg-black flex flex-col translate-y-full transition-transform duration-300 z-30 pt-10">
+                <div class="bg-black px-4 py-3 flex items-center justify-between border-b border-zinc-800">
+                    <button onclick="closeApp('twitter-app')" class="text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <h3 class="text-white font-bold text-lg">𝕏</h3>
+                    <div class="w-6"></div>
+                </div>
+                <div class="flex-1 overflow-y-auto bg-black p-4 space-y-4">
+                    <div class="border-b border-zinc-800 pb-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 rounded-full overflow-hidden bg-zinc-800">
+                                <img src="https://i.postimg.cc/XqLFjWds/`ˏ-lex-xodiac-ˎˊ.jpg" class="w-full h-full object-cover" crossorigin="anonymous">
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center space-x-1">
+                                    <h4 class="text-white font-bold text-sm">langit</h4>
+                                    <span class="text-zinc-500 text-xs">@intothesky · 2j</span>
+                                </div>
+                                <p class="text-slate-100 text-sm mt-1">dia nyebelin, tp gw suka</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. ALBUM / GALLERY -->
+            <div id="gallery-app" class="absolute inset-0 bg-slate-900 flex flex-col translate-y-full transition-transform duration-300 z-30 pt-10">
+                <div class="bg-slate-800 px-4 py-3 flex items-center justify-between border-b border-slate-700">
+                    <button onclick="closeApp('gallery-app')" class="text-slate-300 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <h3 class="text-white font-bold text-sm">Galeri</h3>
+                    <div class="w-6"></div>
+                </div>
+                <div class="flex-1 overflow-y-auto p-2 bg-slate-950">
+                    <div class="grid grid-cols-2 gap-2">
+                        <div onclick="openPhotoModal('https://i.postimg.cc/BZHmWPyS/ec480072a4663f41e5cdb44063f8ce64.jpg')" class="aspect-square bg-slate-800 rounded-xl overflow-hidden cursor-pointer active:opacity-80">
+                            <img src="https://i.postimg.cc/BZHmWPyS/ec480072a4663f41e5cdb44063f8ce64.jpg" class="w-full h-full object-cover" crossorigin="anonymous" loading="lazy">
+                        </div>
+                        <div onclick="openPhotoModal('https://i.postimg.cc/RVTGh5vx/download-(7).jpg')" class="aspect-square bg-slate-800 rounded-xl overflow-hidden cursor-pointer active:opacity-80">
+                            <img src="https://i.postimg.cc/RVTGh5vx/download-(7).jpg" class="w-full h-full object-cover" crossorigin="anonymous" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. CATATAN -->
+            <div id="notes-app" class="absolute inset-0 bg-[#1c1c1e] flex flex-col translate-y-full transition-transform duration-300 z-30 pt-10">
+                <div class="bg-[#1c1c1e] px-4 py-3 flex items-center justify-between border-b border-zinc-800">
+                    <button onclick="closeApp('notes-app')" class="text-amber-400 font-medium text-sm flex items-center">
+                        <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                        Catatan
+                    </button>
+                    <div class="w-6"></div>
+                </div>
+                <div class="flex-1 p-5 overflow-y-auto">
+                    <div class="bg-[#2c2c2e] p-4 rounded-2xl border border-zinc-700/50 shadow-inner">
+                        <h3 class="text-white font-bold text-lg mb-2">miss u sm</h3>
+                        <p class="text-zinc-200 text-sm leading-relaxed whitespace-pre-wrap">ma, pa, banyak yg mau langit ceritain. soal sekolah, geng meteor, juga... salsa. hehe.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. JAM -->
+            <div id="clock-app" class="absolute inset-0 bg-black flex flex-col translate-y-full transition-transform duration-300 z-30 pt-10">
+                <div class="bg-black px-4 py-3 flex items-center justify-between border-b border-zinc-800">
+                    <button onclick="closeApp('clock-app')" class="text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <h3 class="text-white font-bold text-sm">Alarm</h3>
+                    <div class="w-6"></div>
+                </div>
+                <div class="flex-1 p-5 overflow-y-auto space-y-4">
+                    <div class="bg-zinc-900 p-4 rounded-2xl flex items-center justify-between border border-zinc-800">
+                        <div>
+                            <div class="text-4xl font-light text-white tracking-tight">05:00</div>
+                            <p class="text-zinc-400 text-xs mt-1">no label</p>
+                        </div>
+                        <div class="w-12 h-7 bg-emerald-500 rounded-full p-1 flex items-center justify-end shadow">
+                            <div class="w-5 h-5 bg-white rounded-full shadow-md"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODAL TELEPON -->
+            <div id="call-modal" class="absolute inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex flex-col items-center justify-end p-6">
+                <div class="bg-slate-900 w-full rounded-3xl p-5 border border-slate-700 shadow-2xl space-y-4">
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-8 h-8 rounded-full overflow-hidden">
+                                <img src="https://i.postimg.cc/zXy4RGPJ/minha-foto-de-perfil-para-quem-quiser.jpg" class="w-full h-full object-cover" crossorigin="anonymous">
+                            </div>
+                            <span class="text-white font-bold text-sm">Percakapan dengan Singa</span>
+                        </div>
+                        <button onclick="closeCallModal()" class="text-slate-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                        </button>
+                    </div>
+                    <div class="space-y-3 text-xs text-slate-200">
+                        <div class="p-2.5 bg-slate-800 rounded-xl"><strong>[Tokoh Utama]:</strong> lo dimana? katanya mo balikin jaket</div>
+                        <div class="p-2.5 bg-slate-800/60 rounded-xl"><strong>[Singa]:</strong> nanti abis jam istirahat, gue masih makan</div>
+                        <div class="p-2.5 bg-slate-800 rounded-xl"><strong>[Tokoh Utama]:</strong> oke, nalikin ke kelas gue entar</div>
+                        <div class="p-2.5 bg-rose-950/40 border border-rose-900/50 rounded-xl text-rose-300"><strong>[Singa]:</strong> JANGAN!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODAL FOTO -->
+            <div id="photo-modal" class="absolute inset-0 bg-black/95 z-50 hidden flex flex-col items-center justify-center p-4">
+                <button onclick="closePhotoModal()" class="absolute top-12 right-6 text-white p-2 rounded-full bg-slate-800/80">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+                <img id="modal-img" src="" class="max-h-[80%] max-w-full rounded-2xl object-contain shadow-2xl" crossorigin="anonymous">
+            </div>
+
+        </div>
+
+        <div class="bg-transparent h-7 flex items-center justify-center z-50 select-none pb-2">
+            <button onclick="goHome()" class="w-32 h-1 bg-white/50 rounded-full hover:bg-white transition-colors focus:outline-none"></button>
+        </div>
+
+    </div>
+
+    <!-- Script -->
+    <script>
+        let enteredPin = "";
+        const correctPin = "2504";
+
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}`;
+            document.getElementById('clock').innerText = timeString;
+            document.getElementById('lock-clock').innerText = timeString;
+            document.getElementById('home-clock').innerText = timeString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        function pressPin(digit) {
+            if (enteredPin.length < 4) {
+                enteredPin += digit;
+                updatePinDots();
+                if (enteredPin.length === 4) {
+                    setTimeout(checkPin, 200);
+                }
+            }
+        }
+
+        function clearPin() {
+            enteredPin = "";
+            updatePinDots();
+            document.getElementById('pin-error').classList.add('hidden');
+        }
+
+        function updatePinDots() {
+            for (let i = 0; i < 4; i++) {
+                const dot = document.getElementById(`dot-${i}`);
+                if (i < enteredPin.length) {
+                    dot.classList.add('bg-white');
+                } else {
+                    dot.classList.remove('bg-white');
+                }
+            }
+        }
+
+        function checkPin() {
+            if (enteredPin === correctPin) {
+                const lockScreen = document.getElementById('lock-screen');
+                lockScreen.style.opacity = '0';
+                setTimeout(() => {
+                    lockScreen.style.display = 'none';
+                }, 300);
+            } else {
+                document.getElementById('pin-error').classList.remove('hidden');
+                setTimeout(clearPin, 1000);
+            }
+        }
+
+        function openApp(appId) {
+            document.getElementById(appId).style.transform = 'translateY(0)';
+        }
+
+        function closeApp(appId) {
+            document.getElementById(appId).style.transform = 'translateY(100%)';
+        }
+
+        function goHome() {
+            const apps = ['chat-app', 'phone-app', 'ig-app', 'twitter-app', 'gallery-app', 'notes-app', 'clock-app'];
+            apps.forEach(app => {
+                document.getElementById(app).style.transform = 'translateY(100%)';
+            });
+            closeCallModal();
+            closePhotoModal();
+        }
+
+        function openCallModal() {
+            document.getElementById('call-modal').classList.remove('hidden');
+        }
+
+        function closeCallModal() {
+            document.getElementById('call-modal').classList.add('hidden');
+        }
+
+        function openPhotoModal(imgSrc) {
+            document.getElementById('modal-img').src = imgSrc;
+            document.getElementById('photo-modal').classList.remove('hidden');
+        }
+
+        function closePhotoModal() {
+            document.getElementById('photo-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
