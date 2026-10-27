@@ -46,15 +46,15 @@
         <!-- ================= CONTENT AREA ================= -->
         <div class="flex-1 relative overflow-hidden flex flex-col bg-slate-950">
 
-            <!-- 1. LOCK SCREEN (PIN KODE: 2504) -->
-            <div id="lock-screen" class="absolute inset-0 flex flex-col justify-between p-8 bg-cover bg-center z-45 transition-opacity duration-300" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop');">
+            <!-- 1. LOCK SCREEN (PIN KODE: 2504) - DIPASTIKAN MUNCUL DI AWAL -->
+            <div id="lock-screen" class="absolute inset-0 flex flex-col justify-between p-8 bg-cover bg-center z-50 transition-opacity duration-300 flex" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop');">
                 <div class="text-white text-center mt-16">
                     <svg class="w-7 h-7 mx-auto mb-2 text-slate-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                     <h1 class="text-6xl font-extrabold tracking-tight" id="lock-clock">12:00</h1>
                     <p class="text-base text-slate-200 mt-2 font-medium">Selasa, 27 Oktober</p>
                 </div>
 
-                <!-- Bagian Masukkan PIN (Bersih tanpa clue kode) -->
+                <!-- Bagian Masukkan PIN -->
                 <div class="mb-8 flex flex-col items-center">
                     <p class="text-white text-xs mb-3 font-medium tracking-wide">Masukkan Kata Sandi</p>
                     <div class="flex space-x-3 mb-6">
@@ -146,10 +146,8 @@
                 </div>
             </div>
 
-            <!-- 3. WHATSAPP (DENGAN HALAMAN CHAT LIST & CHAT ROOM) -->
+            <!-- 3. WHATSAPP -->
             <div id="chat-app" class="absolute inset-0 bg-[#0b141a] flex flex-col translate-y-full transition-transform duration-300 z-30">
-                
-                <!-- Tampilan 1: Daftar Chat (Chat List) -->
                 <div id="wa-chat-list" class="absolute inset-0 flex flex-col bg-[#0b141a] pt-10">
                     <div class="bg-[#202c33] px-4 py-3 flex items-center justify-between border-b border-slate-700">
                         <div class="flex items-center space-x-3">
@@ -160,7 +158,6 @@
                         </div>
                     </div>
                     <div class="flex-1 overflow-y-auto divide-y divide-slate-800">
-                        <!-- Item Chat Singa -->
                         <div onclick="openWaRoom()" class="flex items-center px-4 py-3 space-x-3 hover:bg-[#202c33]/50 cursor-pointer transition-colors">
                             <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-700 shrink-0">
                                 <img src="https://i.postimg.cc/zXy4RGPJ/minha-foto-de-perfil-para-quem-quiser.jpg" class="w-full h-full object-cover">
@@ -176,7 +173,6 @@
                     </div>
                 </div>
 
-                <!-- Tampilan 2: Ruang Obrolan (Chat Room) -->
                 <div id="wa-chat-room" class="absolute inset-0 flex flex-col bg-[#0b141a] pt-10 hidden z-10">
                     <div class="bg-[#202c33] px-4 py-3 flex items-center justify-between border-b border-slate-700">
                         <div class="flex items-center space-x-3">
@@ -209,10 +205,8 @@
                 </div>
             </div>
 
-            <!-- 4. TELEPON (LAYAR SEDANG TELEPONAN & TEKS MUNCUL SATU-SATU) -->
+            <!-- 4. TELEPON -->
             <div id="phone-app" class="absolute inset-0 bg-slate-900 flex flex-col translate-y-full transition-transform duration-300 z-30 pt-10">
-                
-                <!-- Tampilan 1: Menu Kontak / Riwayat -->
                 <div id="phone-home" class="absolute inset-0 flex flex-col bg-slate-900 pt-10">
                     <div class="bg-slate-800 px-4 py-3 flex items-center justify-between border-b border-slate-700">
                         <button onclick="closeApp('phone-app')" class="text-slate-300 hover:text-white">
@@ -240,7 +234,6 @@
                     </div>
                 </div>
 
-                <!-- Tampilan 2: Layar Sedang Menelepon & Transkrip Teks Berurutan -->
                 <div id="phone-call-screen" class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 flex flex-col justify-between p-6 hidden z-20 pt-12">
                     <div class="text-center mt-4">
                         <div class="w-20 h-20 rounded-full overflow-hidden mx-auto mb-3 border-2 border-emerald-500 shadow-xl">
@@ -250,10 +243,7 @@
                         <p id="call-timer" class="text-emerald-400 text-xs font-mono mt-1">00:00</p>
                     </div>
 
-                    <!-- Kotak Dialog Transkrip Percakapan (Muncul Satu-Satu) -->
-                    <div id="transcript-box" class="flex-1 my-4 overflow-y-auto space-y-3 px-2 flex flex-col justify-end">
-                        <!-- Teks akan di-inject lewat JavaScript satu persatu -->
-                    </div>
+                    <div id="transcript-box" class="flex-1 my-4 overflow-y-auto space-y-3 px-2 flex flex-col justify-end"></div>
 
                     <div class="flex justify-center pb-6">
                         <button onclick="endCall()" class="w-16 h-16 bg-rose-600 rounded-full flex items-center justify-center text-white shadow-lg active:scale-95 transition-transform">
@@ -261,7 +251,6 @@
                         </button>
                     </div>
                 </div>
-
             </div>
 
             <!-- 5. INSTAGRAM -->
@@ -395,7 +384,7 @@
 
     </div>
 
-    <!-- Script Interaktif Lengkap -->
+    <!-- Script Interaktif -->
     <script>
         let enteredPin = "";
         const correctPin = "2504";
@@ -462,7 +451,6 @@
             if (appId === 'phone-app') endCall();
         }
 
-        // WhatsApp Chat List & Room Navigasi
         function openWaRoom() {
             document.getElementById('wa-chat-room').classList.remove('hidden');
         }
@@ -470,7 +458,6 @@
             document.getElementById('wa-chat-room').classList.add('hidden');
         }
 
-        // Telepon Interaktif (Animasi Teks Muncul Satu-satu & Timer)
         let callTimerInterval;
         let callTimeoutList = [];
 
@@ -478,7 +465,6 @@
             document.getElementById('phone-home').style.display = 'none';
             document.getElementById('phone-call-screen').classList.remove('hidden');
             
-            // Jalankan Timer Telepon
             let seconds = 0;
             const timerEl = document.getElementById('call-timer');
             callTimerInterval = setInterval(() => {
@@ -488,7 +474,6 @@
                 timerEl.innerText = `${m}:${s}`;
             }, 1000);
 
-            // Skenario Transkrip Teks Muncul Satu-satu
             const transcriptBox = document.getElementById('transcript-box');
             transcriptBox.innerHTML = '';
 
@@ -506,7 +491,7 @@
                     bubble.innerHTML = `<strong>[${dialog.sender}]:</strong> ${dialog.text}`;
                     transcriptBox.appendChild(bubble);
                     transcriptBox.scrollTop = transcriptBox.scrollHeight;
-                }, (index + 1) * 1500); // Jeda 1.5 detik per kalimat
+                }, (index + 1) * 1500);
                 callTimeoutList.push(timeoutId);
             });
         }
