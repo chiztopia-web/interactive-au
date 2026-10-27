@@ -47,14 +47,14 @@
         <div class="flex-1 relative overflow-hidden flex flex-col bg-slate-950">
 
             <!-- 1. LOCK SCREEN (PIN KODE: 2504) -->
-            <div id="lock-screen" class="absolute inset-0 flex flex-col justify-between p-8 bg-cover bg-center z-40 transition-opacity duration-300" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop');">
+            <div id="lock-screen" class="absolute inset-0 flex flex-col justify-between p-8 bg-cover bg-center z-45 transition-opacity duration-300" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop');">
                 <div class="text-white text-center mt-16">
                     <svg class="w-7 h-7 mx-auto mb-2 text-slate-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                     <h1 class="text-6xl font-extrabold tracking-tight" id="lock-clock">12:00</h1>
                     <p class="text-base text-slate-200 mt-2 font-medium">Selasa, 27 Oktober</p>
                 </div>
 
-                <!-- Bagian Masukkan PIN (Tanpa clue kode di layar) -->
+                <!-- Bagian Masukkan PIN (Bersih tanpa clue kode) -->
                 <div class="mb-8 flex flex-col items-center">
                     <p class="text-white text-xs mb-3 font-medium tracking-wide">Masukkan Kata Sandi</p>
                     <div class="flex space-x-3 mb-6">
@@ -67,18 +67,18 @@
                     
                     <!-- Numpad iPhone -->
                     <div class="grid grid-cols-3 gap-3 w-64">
-                        <button onclick="pressPin('1')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">1</button>
-                        <button onclick="pressPin('2')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">2</button>
-                        <button onclick="pressPin('3')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">3</button>
-                        <button onclick="pressPin('4')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">4</button>
-                        <button onclick="pressPin('5')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">5</button>
-                        <button onclick="pressPin('6')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">6</button>
-                        <button onclick="pressPin('7')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">7</button>
-                        <button onclick="pressPin('8')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">8</button>
-                        <button onclick="pressPin('9')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">9</button>
+                        <button type="button" onclick="pressPin('1')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">1</button>
+                        <button type="button" onclick="pressPin('2')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">2</button>
+                        <button type="button" onclick="pressPin('3')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">3</button>
+                        <button type="button" onclick="pressPin('4')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">4</button>
+                        <button type="button" onclick="pressPin('5')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">5</button>
+                        <button type="button" onclick="pressPin('6')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">6</button>
+                        <button type="button" onclick="pressPin('7')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">7</button>
+                        <button type="button" onclick="pressPin('8')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">8</button>
+                        <button type="button" onclick="pressPin('9')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">9</button>
                         <div></div>
-                        <button onclick="pressPin('0')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">0</button>
-                        <button onclick="clearPin()" class="w-16 h-16 rounded-full text-white text-xs font-medium flex items-center justify-center active:opacity-60">Hapus</button>
+                        <button type="button" onclick="pressPin('0')" class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md text-white text-xl font-medium active:bg-white/40 flex items-center justify-center">0</button>
+                        <button type="button" onclick="clearPin()" class="w-16 h-16 rounded-full text-white text-xs font-medium flex items-center justify-center active:opacity-60">Hapus</button>
                     </div>
                 </div>
             </div>
@@ -146,64 +146,122 @@
                 </div>
             </div>
 
-            <!-- 3. WHATSAPP -->
-            <div id="chat-app" class="absolute inset-0 bg-[#0b141a] flex flex-col translate-y-full transition-transform duration-300 z-30 pt-10">
-                <div class="bg-[#202c33] px-4 py-3 flex items-center justify-between border-b border-slate-700">
-                    <div class="flex items-center space-x-3">
-                        <button onclick="closeApp('chat-app')" class="text-emerald-400 hover:text-white flex items-center">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-                        </button>
-                        <div class="flex items-center space-x-2.5">
-                            <div class="w-9 h-9 rounded-full overflow-hidden bg-slate-700">
-                                <img src="https://i.postimg.cc/zXy4RGPJ/minha-foto-de-perfil-para-quem-quiser.jpg" class="w-full h-full object-cover" crossorigin="anonymous">
+            <!-- 3. WHATSAPP (DENGAN HALAMAN CHAT LIST & CHAT ROOM) -->
+            <div id="chat-app" class="absolute inset-0 bg-[#0b141a] flex flex-col translate-y-full transition-transform duration-300 z-30">
+                
+                <!-- Tampilan 1: Daftar Chat (Chat List) -->
+                <div id="wa-chat-list" class="absolute inset-0 flex flex-col bg-[#0b141a] pt-10">
+                    <div class="bg-[#202c33] px-4 py-3 flex items-center justify-between border-b border-slate-700">
+                        <div class="flex items-center space-x-3">
+                            <button onclick="closeApp('chat-app')" class="text-emerald-400 hover:text-white">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                            </button>
+                            <h2 class="text-white font-bold text-lg">WhatsApp</h2>
+                        </div>
+                    </div>
+                    <div class="flex-1 overflow-y-auto divide-y divide-slate-800">
+                        <!-- Item Chat Singa -->
+                        <div onclick="openWaRoom()" class="flex items-center px-4 py-3 space-x-3 hover:bg-[#202c33]/50 cursor-pointer transition-colors">
+                            <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-700 shrink-0">
+                                <img src="https://i.postimg.cc/zXy4RGPJ/minha-foto-de-perfil-para-quem-quiser.jpg" class="w-full h-full object-cover">
                             </div>
-                            <div>
-                                <h3 class="text-white text-sm font-semibold">Singa</h3>
-                                <p class="text-emerald-400 text-[10px]">online</p>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="text-white font-semibold text-sm truncate">Singa</h3>
+                                    <span class="text-emerald-400 text-[10px]">13.20</span>
+                                </div>
+                                <p class="text-slate-400 text-xs truncate mt-0.5">lama amat</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="flex-1 p-4 overflow-y-auto space-y-2.5 bg-[#0b141a]">
-                    <div class="flex justify-end"><div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">p</div></div>
-                    <div class="flex justify-end"><div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">kpn mo balikin jaket gw??</div></div>
-                    <div class="flex justify-end"><div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">jgn2 udh lo jual ya?</div></div>
-                    <div class="flex justify-start"><div class="bg-[#202c33] text-slate-100 px-3.5 py-2 rounded-xl rounded-tl-none max-w-[80%] text-sm shadow">bawel anjirr</div></div>
-                    <div class="flex justify-start"><div class="bg-[#202c33] text-slate-100 px-3.5 py-2 rounded-xl rounded-tl-none max-w-[80%] text-sm shadow">kagak yaaa</div></div>
-                    <div class="flex justify-start"><div class="bg-[#202c33] text-slate-100 px-3.5 py-2 rounded-xl rounded-tl-none max-w-[80%] text-sm shadow">bsk gua balikin</div></div>
-                    <div class="flex justify-end"><div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">lama amat</div></div>
-                </div>
-                <div class="p-3 bg-[#202c33] flex items-center space-x-2">
-                    <input type="text" placeholder="Ketik pesan..." class="flex-1 bg-[#2a3942] text-white text-sm px-4 py-2.5 rounded-full focus:outline-none" disabled>
+
+                <!-- Tampilan 2: Ruang Obrolan (Chat Room) -->
+                <div id="wa-chat-room" class="absolute inset-0 flex flex-col bg-[#0b141a] pt-10 hidden z-10">
+                    <div class="bg-[#202c33] px-4 py-3 flex items-center justify-between border-b border-slate-700">
+                        <div class="flex items-center space-x-3">
+                            <button onclick="closeWaRoom()" class="text-emerald-400 hover:text-white flex items-center">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                            </button>
+                            <div class="flex items-center space-x-2.5">
+                                <div class="w-9 h-9 rounded-full overflow-hidden bg-slate-700">
+                                    <img src="https://i.postimg.cc/zXy4RGPJ/minha-foto-de-perfil-para-quem-quiser.jpg" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h3 class="text-white text-sm font-semibold">Singa</h3>
+                                    <p class="text-emerald-400 text-[10px]">online</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1 p-4 overflow-y-auto space-y-2.5 bg-[#0b141a]">
+                        <div class="flex justify-end"><div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">p</div></div>
+                        <div class="flex justify-end"><div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">kpn mo balikin jaket gw??</div></div>
+                        <div class="flex justify-end"><div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">jgn2 udh lo jual ya?</div></div>
+                        <div class="flex justify-start"><div class="bg-[#202c33] text-slate-100 px-3.5 py-2 rounded-xl rounded-tl-none max-w-[80%] text-sm shadow">bawel anjirr</div></div>
+                        <div class="flex justify-start"><div class="bg-[#202c33] text-slate-100 px-3.5 py-2 rounded-xl rounded-tl-none max-w-[80%] text-sm shadow">kagak yaaa</div></div>
+                        <div class="flex justify-start"><div class="bg-[#202c33] text-slate-100 px-3.5 py-2 rounded-xl rounded-tl-none max-w-[80%] text-sm shadow">bsk gua balikin</div></div>
+                        <div class="flex justify-end"><div class="bg-[#005c4b] text-white px-3.5 py-2 rounded-xl rounded-tr-none max-w-[80%] text-sm shadow">lama amat</div></div>
+                    </div>
+                    <div class="p-3 bg-[#202c33] flex items-center space-x-2">
+                        <input type="text" placeholder="Ketik pesan..." class="flex-1 bg-[#2a3942] text-white text-sm px-4 py-2.5 rounded-full focus:outline-none" disabled>
+                    </div>
                 </div>
             </div>
 
-            <!-- 4. TELEPON -->
+            <!-- 4. TELEPON (LAYAR SEDANG TELEPONAN & TEKS MUNCUL SATU-SATU) -->
             <div id="phone-app" class="absolute inset-0 bg-slate-900 flex flex-col translate-y-full transition-transform duration-300 z-30 pt-10">
-                <div class="bg-slate-800 px-4 py-3 flex items-center justify-between border-b border-slate-700">
-                    <button onclick="closeApp('phone-app')" class="text-slate-300 hover:text-white">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-                    </button>
-                    <h3 class="text-white font-bold text-sm">Riwayat Panggilan & Kontak</h3>
-                    <div class="w-6"></div>
-                </div>
-                <div class="flex-1 p-4 overflow-y-auto space-y-4">
-                    <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Kontak Favorit</p>
-                    <div onclick="openCallModal()" class="bg-slate-800/80 p-3.5 rounded-2xl flex items-center justify-between cursor-pointer border border-slate-700 hover:border-emerald-500 transition-all">
-                        <div class="flex items-center space-x-3">
-                            <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-700">
-                                <img src="https://i.postimg.cc/zXy4RGPJ/minha-foto-de-perfil-para-quem-quiser.jpg" class="w-full h-full object-cover" crossorigin="anonymous">
+                
+                <!-- Tampilan 1: Menu Kontak / Riwayat -->
+                <div id="phone-home" class="absolute inset-0 flex flex-col bg-slate-900 pt-10">
+                    <div class="bg-slate-800 px-4 py-3 flex items-center justify-between border-b border-slate-700">
+                        <button onclick="closeApp('phone-app')" class="text-slate-300 hover:text-white">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <h3 class="text-white font-bold text-sm">Telepon</h3>
+                        <div class="w-6"></div>
+                    </div>
+                    <div class="flex-1 p-4 overflow-y-auto space-y-4">
+                        <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Kontak Favorit</p>
+                        <div onclick="startCall()" class="bg-slate-800/80 p-3.5 rounded-2xl flex items-center justify-between cursor-pointer border border-slate-700 hover:border-emerald-500 transition-all">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-700">
+                                    <img src="https://i.postimg.cc/zXy4RGPJ/minha-foto-de-perfil-para-quem-quiser.jpg" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-bold text-sm">Singa</h4>
+                                    <p class="text-emerald-400 text-xs">Ketuk untuk telepon</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="text-white font-bold text-sm">Singa</h4>
-                                <p class="text-emerald-400 text-xs">Panggilan Masuk (01:45)</p>
+                            <div class="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white shadow-lg">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                             </div>
-                        </div>
-                        <div class="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white shadow-lg">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                         </div>
                     </div>
                 </div>
+
+                <!-- Tampilan 2: Layar Sedang Menelepon & Transkrip Teks Berurutan -->
+                <div id="phone-call-screen" class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 flex flex-col justify-between p-6 hidden z-20 pt-12">
+                    <div class="text-center mt-4">
+                        <div class="w-20 h-20 rounded-full overflow-hidden mx-auto mb-3 border-2 border-emerald-500 shadow-xl">
+                            <img src="https://i.postimg.cc/zXy4RGPJ/minha-foto-de-perfil-para-quem-quiser.jpg" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-white font-bold text-xl">Singa</h3>
+                        <p id="call-timer" class="text-emerald-400 text-xs font-mono mt-1">00:00</p>
+                    </div>
+
+                    <!-- Kotak Dialog Transkrip Percakapan (Muncul Satu-Satu) -->
+                    <div id="transcript-box" class="flex-1 my-4 overflow-y-auto space-y-3 px-2 flex flex-col justify-end">
+                        <!-- Teks akan di-inject lewat JavaScript satu persatu -->
+                    </div>
+
+                    <div class="flex justify-center pb-6">
+                        <button onclick="endCall()" class="w-16 h-16 bg-rose-600 rounded-full flex items-center justify-center text-white shadow-lg active:scale-95 transition-transform">
+                            <svg class="w-8 h-8 rotate-[135deg]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        </button>
+                    </div>
+                </div>
+
             </div>
 
             <!-- 5. INSTAGRAM -->
@@ -219,12 +277,12 @@
                     <div class="bg-black border-b border-zinc-800">
                         <div class="flex items-center px-3.5 py-2.5 space-x-2.5">
                             <div class="w-8 h-8 rounded-full overflow-hidden bg-zinc-800">
-                                <img src="https://i.postimg.cc/XqLFjWds/`ˏ-lex-xodiac-ˎˊ.jpg" class="w-full h-full object-cover" crossorigin="anonymous">
+                                <img src="https://i.postimg.cc/XqLFjWds/`ˏ-lex-xodiac-ˎˊ.jpg" class="w-full h-full object-cover">
                             </div>
                             <span class="text-white text-xs font-semibold">intothesky</span>
                         </div>
                         <div class="w-full aspect-square bg-zinc-900">
-                            <img src="https://i.postimg.cc/RVTGh5vx/download-(7).jpg" class="w-full h-full object-cover" crossorigin="anonymous">
+                            <img src="https://i.postimg.cc/RVTGh5vx/download-(7).jpg" class="w-full h-full object-cover">
                         </div>
                         <div class="px-3.5 py-2.5 space-y-1">
                             <p class="text-white text-xs font-semibold">112 suka</p>
@@ -247,7 +305,7 @@
                     <div class="border-b border-zinc-800 pb-4">
                         <div class="flex items-start space-x-3">
                             <div class="w-10 h-10 rounded-full overflow-hidden bg-zinc-800">
-                                <img src="https://i.postimg.cc/XqLFjWds/`ˏ-lex-xodiac-ˎˊ.jpg" class="w-full h-full object-cover" crossorigin="anonymous">
+                                <img src="https://i.postimg.cc/XqLFjWds/`ˏ-lex-xodiac-ˎˊ.jpg" class="w-full h-full object-cover">
                             </div>
                             <div class="flex-1">
                                 <div class="flex items-center space-x-1">
@@ -261,7 +319,7 @@
                 </div>
             </div>
 
-            <!-- 7. ALBUM / GALLERY -->
+            <!-- 7. ALBUM -->
             <div id="gallery-app" class="absolute inset-0 bg-slate-900 flex flex-col translate-y-full transition-transform duration-300 z-30 pt-10">
                 <div class="bg-slate-800 px-4 py-3 flex items-center justify-between border-b border-slate-700">
                     <button onclick="closeApp('gallery-app')" class="text-slate-300 hover:text-white">
@@ -273,10 +331,10 @@
                 <div class="flex-1 overflow-y-auto p-2 bg-slate-950">
                     <div class="grid grid-cols-2 gap-2">
                         <div onclick="openPhotoModal('https://i.postimg.cc/BZHmWPyS/ec480072a4663f41e5cdb44063f8ce64.jpg')" class="aspect-square bg-slate-800 rounded-xl overflow-hidden cursor-pointer active:opacity-80">
-                            <img src="https://i.postimg.cc/BZHmWPyS/ec480072a4663f41e5cdb44063f8ce64.jpg" class="w-full h-full object-cover" crossorigin="anonymous" loading="lazy">
+                            <img src="https://i.postimg.cc/BZHmWPyS/ec480072a4663f41e5cdb44063f8ce64.jpg" class="w-full h-full object-cover" loading="lazy">
                         </div>
                         <div onclick="openPhotoModal('https://i.postimg.cc/RVTGh5vx/download-(7).jpg')" class="aspect-square bg-slate-800 rounded-xl overflow-hidden cursor-pointer active:opacity-80">
-                            <img src="https://i.postimg.cc/RVTGh5vx/download-(7).jpg" class="w-full h-full object-cover" crossorigin="anonymous" loading="lazy">
+                            <img src="https://i.postimg.cc/RVTGh5vx/download-(7).jpg" class="w-full h-full object-cover" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -321,35 +379,12 @@
                 </div>
             </div>
 
-            <!-- MODAL TELEPON -->
-            <div id="call-modal" class="absolute inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex flex-col items-center justify-end p-6">
-                <div class="bg-slate-900 w-full rounded-3xl p-5 border border-slate-700 shadow-2xl space-y-4">
-                    <div class="flex justify-between items-center border-b border-slate-800 pb-3">
-                        <div class="flex items-center space-x-2">
-                            <div class="w-8 h-8 rounded-full overflow-hidden">
-                                <img src="https://i.postimg.cc/zXy4RGPJ/minha-foto-de-perfil-para-quem-quiser.jpg" class="w-full h-full object-cover" crossorigin="anonymous">
-                            </div>
-                            <span class="text-white font-bold text-sm">Percakapan dengan Singa</span>
-                        </div>
-                        <button onclick="closeCallModal()" class="text-slate-400 hover:text-white">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-                        </button>
-                    </div>
-                    <div class="space-y-3 text-xs text-slate-200">
-                        <div class="p-2.5 bg-slate-800 rounded-xl"><strong>[Tokoh Utama]:</strong> lo dimana? katanya mo balikin jaket</div>
-                        <div class="p-2.5 bg-slate-800/60 rounded-xl"><strong>[Singa]:</strong> nanti abis jam istirahat, gue masih makan</div>
-                        <div class="p-2.5 bg-slate-800 rounded-xl"><strong>[Tokoh Utama]:</strong> oke, nalikin ke kelas gue entar</div>
-                        <div class="p-2.5 bg-rose-950/40 border border-rose-900/50 rounded-xl text-rose-300"><strong>[Singa]:</strong> JANGAN!</div>
-                    </div>
-                </div>
-            </div>
-
             <!-- MODAL FOTO -->
             <div id="photo-modal" class="absolute inset-0 bg-black/95 z-50 hidden flex flex-col items-center justify-center p-4">
                 <button onclick="closePhotoModal()" class="absolute top-12 right-6 text-white p-2 rounded-full bg-slate-800/80">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
-                <img id="modal-img" src="" class="max-h-[80%] max-w-full rounded-2xl object-contain shadow-2xl" crossorigin="anonymous">
+                <img id="modal-img" src="" class="max-h-[80%] max-w-full rounded-2xl object-contain shadow-2xl">
             </div>
 
         </div>
@@ -360,7 +395,7 @@
 
     </div>
 
-    <!-- Script -->
+    <!-- Script Interaktif Lengkap -->
     <script>
         let enteredPin = "";
         const correctPin = "2504";
@@ -423,6 +458,65 @@
 
         function closeApp(appId) {
             document.getElementById(appId).style.transform = 'translateY(100%)';
+            if (appId === 'chat-app') closeWaRoom();
+            if (appId === 'phone-app') endCall();
+        }
+
+        // WhatsApp Chat List & Room Navigasi
+        function openWaRoom() {
+            document.getElementById('wa-chat-room').classList.remove('hidden');
+        }
+        function closeWaRoom() {
+            document.getElementById('wa-chat-room').classList.add('hidden');
+        }
+
+        // Telepon Interaktif (Animasi Teks Muncul Satu-satu & Timer)
+        let callTimerInterval;
+        let callTimeoutList = [];
+
+        function startCall() {
+            document.getElementById('phone-home').style.display = 'none';
+            document.getElementById('phone-call-screen').classList.remove('hidden');
+            
+            // Jalankan Timer Telepon
+            let seconds = 0;
+            const timerEl = document.getElementById('call-timer');
+            callTimerInterval = setInterval(() => {
+                seconds++;
+                let m = String(Math.floor(seconds / 60)).padStart(2, '0');
+                let s = String(seconds % 60).padStart(2, '0');
+                timerEl.innerText = `${m}:${s}`;
+            }, 1000);
+
+            // Skenario Transkrip Teks Muncul Satu-satu
+            const transcriptBox = document.getElementById('transcript-box');
+            transcriptBox.innerHTML = '';
+
+            const dialogs = [
+                { sender: 'Tokoh Utama', text: 'lo dimana? katanya mo balikin jaket', bg: 'bg-slate-800' },
+                { sender: 'Singa', text: 'nanti abis jam istirahat, gue masih makan', bg: 'bg-slate-800/60' },
+                { sender: 'Tokoh Utama', text: 'oke, ntar balikin ke kelas gue entar', bg: 'bg-slate-800' },
+                { sender: 'Singa', text: 'JANGAN!', bg: 'bg-rose-950/80 border border-rose-900 text-rose-300 font-bold' }
+            ];
+
+            dialogs.forEach((dialog, index) => {
+                let timeoutId = setTimeout(() => {
+                    const bubble = document.createElement('div');
+                    bubble.className = `p-3 rounded-2xl text-xs animate-fade-in ${dialog.bg}`;
+                    bubble.innerHTML = `<strong>[${dialog.sender}]:</strong> ${dialog.text}`;
+                    transcriptBox.appendChild(bubble);
+                    transcriptBox.scrollTop = transcriptBox.scrollHeight;
+                }, (index + 1) * 1500); // Jeda 1.5 detik per kalimat
+                callTimeoutList.push(timeoutId);
+            });
+        }
+
+        function endCall() {
+            clearInterval(callTimerInterval);
+            callTimeoutList.forEach(id => clearTimeout(id));
+            callTimeoutList = [];
+            document.getElementById('phone-call-screen').classList.add('hidden');
+            document.getElementById('phone-home').style.display = 'flex';
         }
 
         function goHome() {
@@ -430,16 +524,9 @@
             apps.forEach(app => {
                 document.getElementById(app).style.transform = 'translateY(100%)';
             });
-            closeCallModal();
+            closeWaRoom();
+            endCall();
             closePhotoModal();
-        }
-
-        function openCallModal() {
-            document.getElementById('call-modal').classList.remove('hidden');
-        }
-
-        function closeCallModal() {
-            document.getElementById('call-modal').classList.add('hidden');
         }
 
         function openPhotoModal(imgSrc) {
