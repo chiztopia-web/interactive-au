@@ -3,280 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive AU - Phone UI</title>
+    <title>Interactive iPhone AU</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap');
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
         }
-        /* Custom scrollbar untuk HP */
+        /* Custom scrollbar gaya iOS */
         ::-webkit-scrollbar {
             width: 4px;
         }
         ::-webkit-scrollbar-track {
-            background: #1e293b;
+            background: transparent;
         }
         ::-webkit-scrollbar-thumb {
-            background: #475569;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 4px;
         }
     </style>
 </head>
 <body class="bg-slate-950 min-h-screen flex items-center justify-center p-0 sm:p-4">
 
-    <!-- Container Utama HP (Mockup Smartphone Frame) -->
-    <div class="w-full sm:w-[380px] h-screen sm:h-[780px] bg-slate-900 sm:rounded-[40px] shadow-2xl flex flex-col relative overflow-hidden border-0 sm:border-8 sm:border-slate-800">
+    <!-- Container Utama iPhone Frame -->
+    <div class="w-full sm:w-[390px] h-screen sm:h-[844px] bg-black sm:rounded-[50px] shadow-2xl flex flex-col relative overflow-hidden border-0 sm:border-[12px] sm:border-slate-800">
 
-        <!-- Status Bar (Atas HP) -->
-        <div class="bg-slate-900 text-white px-6 py-3 flex justify-between items-center text-xs font-semibold z-50 select-none">
-            <span id="clock">12:00</span>
-            <!-- Notch / Kamera Depan Estetik -->
-            <div class="w-20 h-4 bg-slate-950 rounded-full absolute left-1/2 -translate-x-1/2 top-2"></div>
-            <div class="flex items-center space-x-2">
-                <span>5G</span>
+        <!-- Status Bar & Dynamic Island (Atas iPhone) -->
+        <div class="bg-transparent text-white px-7 py-3 flex justify-between items-center text-xs font-semibold z-50 select-none absolute top-0 left-0 right-0">
+            <span id="clock" class="text-sm font-bold">12:00</span>
+            <!-- Dynamic Island / Notch -->
+            <div class="w-28 h-7 bg-black rounded-full absolute left-1/2 -translate-x-1/2 top-2 flex items-center justify-between px-2.5">
+                <div class="w-2.5 h-2.5 bg-blue-900 rounded-full opacity-60"></div>
+                <div class="w-3 h-3 bg-slate-950 rounded-full"></div>
+            </div>
+            <div class="flex items-center space-x-1.5">
+                <span class="text-[10px]">5G</span>
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19h15.3l-.62-1.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9zm0 2c3.87 0 7 3.13 7 7 0 1.66-.59 3.18-1.57 4.38l-.43-.43C18.42 14.65 19 13.39 19 12c0-3.87-3.13-7-7-7zm0 3a4 4 0 100 8 4 4 0 000-8z"/></svg>
-                <span>100%</span>
+                <span class="text-[10px]">100%</span>
             </div>
         </div>
 
-        <!-- ================= CONTENT AREA (LAYAR UTAMA / APLIKASI) ================= -->
+        <!-- ================= CONTENT AREA ================= -->
         <div class="flex-1 relative overflow-hidden flex flex-col bg-slate-950">
 
-            <!-- 1. HOME SCREEN -->
-            <div id="home-screen" class="absolute inset-0 flex flex-col justify-between p-6 bg-cover bg-center transition-all duration-300" style="background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop');">
-                
-                <!-- Widget Jam & Tanggal -->
-                <div class="text-white text-center mt-8">
-                    <h1 class="text-5xl font-bold tracking-tight" id="home-clock">12:00</h1>
-                    <p class="text-sm text-slate-200 mt-1 font-medium">Senin, 26 Oktober</p>
-                </div>
-
-                <!-- Grid Aplikasi (Icon Launcher) -->
-                <div class="grid grid-cols-4 gap-6 mb-12">
-                    <!-- Chat App -->
-                    <button onclick="openApp('chat-app')" class="flex flex-col items-center group focus:outline-none">
-                        <div class="w-14 h-14 bg-emerald-500 rounded-2xl flex items-center justify-center shadow-lg group-active:scale-95 transition-transform">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-                        </div>
-                        <span class="text-white text-xs mt-1.5 font-medium drop-shadow">Chat</span>
-                    </button>
-
-                    <!-- Instagram / Gramstagram App -->
-                    <button onclick="openApp('ig-app')" class="flex flex-col items-center group focus:outline-none">
-                        <div class="w-14 h-14 bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg group-active:scale-95 transition-transform">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                        </div>
-                        <span class="text-white text-xs mt-1.5 font-medium drop-shadow">Gram</span>
-                    </button>
-
-                    <!-- Gallery App -->
-                    <button onclick="openApp('gallery-app')" class="flex flex-col items-center group focus:outline-none">
-                        <div class="w-14 h-14 bg-blue-500 rounded-2xl flex items-center justify-center shadow-lg group-active:scale-95 transition-transform">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
-                        </div>
-                        <span class="text-white text-xs mt-1.5 font-medium drop-shadow">Album</span>
-                    </button>
-
-                    <!-- Notes App -->
-                    <button onclick="openApp('notes-app')" class="flex flex-col items-center group focus:outline-none">
-                        <div class="w-14 h-14 bg-amber-400 rounded-2xl flex items-center justify-center shadow-lg group-active:scale-95 transition-transform">
-                            <svg class="w-8 h-8 text-slate-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-                        </div>
-                        <span class="text-white text-xs mt-1.5 font-medium drop-shadow">Notes</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- 2. APLIKASI CHAT -->
-            <div id="chat-app" class="absolute inset-0 bg-slate-900 flex flex-col translate-y-full transition-transform duration-300 z-20">
-                <div class="bg-slate-800 px-4 py-3 flex items-center justify-between border-b border-slate-700">
-                    <div class="flex items-center space-x-3">
-                        <button onclick="closeApp('chat-app')" class="text-slate-300 hover:text-white">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-                        </button>
-                        <div class="flex items-center space-x-2">
-                            <div class="w-9 h-9 bg-rose-500 rounded-full overflow-hidden">
-                                <img src="https://i.postimg.cc/qBsswwsD/HI-x-Hjta-MAAyt9Q.jpg" class="w-full h-full object-cover">
-                            </div>
-                            <div>
-                                <h3 class="text-white text-sm font-bold">Renan</h3>
-                                <p class="text-emerald-400 text-[10px]">Online</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Chat Room Bubbles -->
-                <div class="flex-1 p-4 overflow-y-auto space-y-3 bg-slate-900">
-                    <div class="flex justify-start">
-                        <div class="bg-slate-800 text-slate-100 px-3.5 py-2 rounded-2xl rounded-tl-none max-w-[80%] text-sm">
-                            Dimana? Jangan lupa makan ya.
-                        </div>
-                    </div>
-                    <div class="flex justify-end">
-                        <div class="bg-emerald-600 text-white px-3.5 py-2 rounded-2xl rounded-tr-none max-w-[80%] text-sm">
-                            Ini baru selesai futsal, sebentar lagi pulang kok.
-                        </div>
-                    </div>
-                </div>
-                <!-- Chat Input Dummy -->
-                <div class="p-3 bg-slate-800 border-t border-slate-700 flex items-center space-x-2">
-                    <input type="text" placeholder="Ketik pesan..." class="flex-1 bg-slate-900 text-white text-sm px-4 py-2 rounded-full focus:outline-none border border-slate-700" disabled>
-                    <div class="w-9 h-9 bg-emerald-600 rounded-full flex items-center justify-center text-white">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. APLIKASI INSTAGRAM (GRAM) -->
-            <div id="ig-app" class="absolute inset-0 bg-slate-900 flex flex-col translate-y-full transition-transform duration-300 z-20">
-                <div class="bg-slate-800 px-4 py-3 flex items-center justify-between border-b border-slate-700">
-                    <button onclick="closeApp('ig-app')" class="text-slate-300 hover:text-white">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-                    </button>
-                    <h3 class="text-white font-bold text-sm tracking-wide">Gramstagram</h3>
-                    <div class="w-6"></div>
-                </div>
-                <div class="flex-1 overflow-y-auto bg-slate-950 space-y-4 pb-4">
-                    <!-- Feed Item -->
-                    <div class="bg-slate-900 border-b border-slate-800">
-                        <div class="flex items-center px-3 py-2 space-x-2">
-                            <div class="w-7 h-7 bg-rose-500 rounded-full overflow-hidden">
-                                <img src="https://i.postimg.cc/qBsswwsD/HI-x-Hjta-MAAyt9Q.jpg" class="w-full h-full object-cover">
-                            </div>
-                            <span class="text-white text-xs font-semibold">renan.pratama</span>
-                        </div>
-                        <div class="w-full aspect-square bg-slate-800">
-                            <img src="https://i.postimg.cc/qBsswwsD/HI-x-Hjta-MAAyt9Q.jpg" class="w-full h-full object-cover">
-                        </div>
-                        <div class="px-3 py-2">
-                            <p class="text-slate-200 text-xs"><strong class="text-white font-semibold">renan.pratama</strong> Capek banget tapi seru ⚽🔥</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. APLIKASI GALLERY (ALBUM) - SUDAH DIPERBAIKI -->
-            <div id="gallery-app" class="absolute inset-0 bg-slate-900 flex flex-col translate-y-full transition-transform duration-300 z-20">
-                <div class="bg-slate-800 px-4 py-3 flex items-center justify-between border-b border-slate-700">
-                    <button onclick="closeApp('gallery-app')" class="text-slate-300 hover:text-white">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-                    </button>
-                    <h3 class="text-white font-bold text-sm">Gallery Album</h3>
-                    <div class="w-6"></div>
-                </div>
-                <!-- Grid Album Foto -->
-                <div class="flex-1 overflow-y-auto p-2 bg-slate-900">
-                    <p class="text-xs text-slate-400 px-2 py-1 mb-2 font-medium">📁 Hidden Album: "Tentang Dia"</p>
-                    <div class="grid grid-cols-3 gap-1.5">
-                        
-                        <!-- Foto 1 -->
-                        <div onclick="openPhotoModal('https://i.postimg.cc/qBsswwsD/HI-x-Hjta-MAAyt9Q.jpg', 'Abis futsal')" 
-                             class="aspect-square bg-slate-800 rounded-lg overflow-hidden cursor-pointer active:opacity-80">
-                            <img src="https://i.postimg.cc/qBsswwsD/HI-x-Hjta-MAAyt9Q.jpg" class="w-full h-full object-cover" loading="lazy">
-                        </div>
-
-                        <!-- Foto 2 -->
-                        <div onclick="openPhotoModal('https://i.postimg.cc/CxSM6ZvP/HNBbi2dbg-AAZ9r-J-(1).jpg', 'Otw jemput')" 
-                             class="aspect-square bg-slate-800 rounded-lg overflow-hidden cursor-pointer active:opacity-80">
-                            <img src="https://i.postimg.cc/CxSM6ZvP/HNBbi2dbg-AAZ9r-J-(1).jpg" class="w-full h-full object-cover" loading="lazy">
-                        </div>
-
-                        <!-- Foto 3 -->
-                        <div onclick="openPhotoModal('https://i.postimg.cc/QCQvx7W3/little-gyu.jpg', 'Waktu masih cimit')" 
-                             class="aspect-square bg-slate-800 rounded-lg overflow-hidden cursor-pointer active:opacity-80">
-                            <img src="https://i.postimg.cc/QCQvx7W3/little-gyu.jpg" class="w-full h-full object-cover" loading="lazy">
-                        </div>
-
-                        <!-- Foto 4 -->
-                        <div onclick="openPhotoModal('https://i.postimg.cc/C13VKYPD/gyu-with-laye.jpg', 'cute')" 
-                             class="aspect-square bg-slate-800 rounded-lg overflow-hidden cursor-pointer active:opacity-80">
-                            <img src="https://i.postimg.cc/C13VKYPD/gyu-with-laye.jpg" class="w-full h-full object-cover" loading="lazy">
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- 5. APLIKASI NOTES -->
-            <div id="notes-app" class="absolute inset-0 bg-slate-900 flex flex-col translate-y-full transition-transform duration-300 z-20">
-                <div class="bg-slate-800 px-4 py-3 flex items-center justify-between border-b border-slate-700">
-                    <button onclick="closeApp('notes-app')" class="text-slate-300 hover:text-white">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-                    </button>
-                    <h3 class="text-white font-bold text-sm">Notes</h3>
-                    <div class="w-6"></div>
-                </div>
-                <div class="flex-1 p-4 overflow-y-auto bg-slate-900 text-slate-200 text-sm space-y-3">
-                    <div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl">
-                        <h4 class="font-bold text-amber-400 mb-1">Rencana Akhir Pekan</h4>
-                        <p class="text-xs text-slate-300">Jangan lupa jemput dia jam 4 sore. Bawa jaket cadangan karena sepertinya mau hujan.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal Popup Detail Foto Album -->
-            <div id="photo-modal" class="absolute inset-0 bg-black/90 z-50 hidden flex flex-col items-center justify-center p-4">
-                <button onclick="closePhotoModal()" class="absolute top-4 right-4 text-white p-2 rounded-full bg-slate-800/80">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-                </button>
-                <img id="modal-img" src="" class="max-h-[70%] max-w-full rounded-lg object-contain mb-4">
-                <p id="modal-caption" class="text-white text-sm font-medium text-center"></p>
-            </div>
-
-        </div>
-
-        <!-- Home Indicator Bar (Bawah HP) -->
-        <div class="bg-slate-900 h-7 flex items-center justify-center z-50 select-none">
-            <button onclick="goHome()" class="w-32 h-1 bg-slate-600 rounded-full hover:bg-slate-400 transition-colors focus:outline-none"></button>
-        </div>
-
-    </div>
-
-    <!-- Script Navigasi Antar Aplikasi -->
-    <script>
-        // Update Jam Real-time
-        function updateClock() {
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const timeString = `${hours}:${minutes}`;
-            document.getElementById('clock').innerText = timeString;
-            document.getElementById('home-clock').innerText = timeString;
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
-
-        // Buka Aplikasi
-        function openApp(appId) {
-            document.getElementById(appId).style.transform = 'translateY(0)';
-        }
-
-        // Tutup Aplikasi / Kembali ke Home
-        function closeApp(appId) {
-            document.getElementById(appId).style.transform = 'translateY(100%)';
-        }
-
-        // Tombol Home Fisik di Bawah
-        function goHome() {
-            const apps = ['chat-app', 'ig-app', 'gallery-app', 'notes-app'];
-            apps.forEach(app => {
-                document.getElementById(app).style.transform = 'translateY(100%)';
-            });
-            closePhotoModal();
-        }
-
-        // Modal Foto Album
-        function openPhotoModal(imgSrc, caption) {
-            document.getElementById('modal-img').src = imgSrc;
-            document.getElementById('modal-caption').innerText = caption;
-            document.getElementById('photo-modal').classList.remove('hidden');
-        }
-
-        function closePhotoModal() {
-            document.getElementById('photo-modal').classList.add('hidden');
-        }
-    </script>
-</body>
-</html>
+            <!-- 1. LOCK SCREEN (PIN KODE: 2504) -->
+            <div id="lock-screen" class="absolute inset-0 flex flex-col justify-between p-8 bg-cover bg-center z-40 transition-all duration-500" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop');">
+                <div class="text-white text-center mt-16">
+                    <svg class="w-7 h-7 mx-auto mb-2 text-slate-200" fill="none" stroke="currentColor" stroke
